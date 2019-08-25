@@ -1,4 +1,4 @@
-package lotteries;
+package games.lotteries;
 
 public class TwoBonusLottery extends Lottery {
 

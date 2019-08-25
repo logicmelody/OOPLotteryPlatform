@@ -1,6 +1,8 @@
-package lotteries;
+package games.lotteries;
 
-abstract public class Lottery {
+import games.Game;
+
+abstract public class Lottery implements Game {
 
     abstract public int getId();
     abstract public String getName();
@@ -43,5 +45,10 @@ abstract public class Lottery {
         stringBuilder.append("betcontent = " + mBetcontent + "\n");
 
         return stringBuilder.toString();
+    }
+
+    @Override
+    public String getBetCode() {
+        return getId() + "_" + getBetcontent();
     }
 }

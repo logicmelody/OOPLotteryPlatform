@@ -1,6 +1,8 @@
-import lotteries.OneBonusLottery;
-import lotteries.SuperLottery;
-import lotteries.TwoBonusLottery;
+import games.lotteries.OneBonusLottery;
+import games.lotteries.SuperLottery;
+import games.lotteries.TwoBonusLottery;
+import games.pokers.SinglePoker;
+import platforms.MJPlatform;
 
 public class Main {
 
@@ -20,5 +22,14 @@ public class Main {
 
         superLottery.setOddBetcontent();
         System.out.println(superLottery.getDisplayText());
+
+
+        MJPlatform mjPlatform = new MJPlatform();
+        mjPlatform.addGame(oneBonusLottery);
+        mjPlatform.addGame(twoBonusLottery);
+        mjPlatform.addGame(superLottery);
+        mjPlatform.addGame(new SinglePoker("A"));
+
+        mjPlatform.bet();
     }
 }
