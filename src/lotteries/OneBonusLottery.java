@@ -2,11 +2,21 @@ package lotteries;
 
 public class OneBonusLottery extends Lottery {
 
-    public OneBonusLottery(int id, String name, int baseBonus) {
-        super(id, name, baseBonus);
+    public OneBonusLottery(int baseBonus) {
+        super(baseBonus);
     }
 
-    public OneBonusLottery(int id, String name, int baseBonus, String betcontent) {
-        super(id, name, baseBonus, betcontent);
+    public OneBonusLottery(int baseBonus, String betcontent) {
+        super(baseBonus, betcontent);
+    }
+
+    @Override
+    public int getId() {
+        return 0;
+    }
+
+    @Override
+    public String getName() {
+        return "一倍彩";
     }
 }

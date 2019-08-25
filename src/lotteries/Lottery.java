@@ -1,47 +1,26 @@
 package lotteries;
 
-public class Lottery {
+abstract public class Lottery {
 
-    private int mId;
-    private String mName;
+    abstract public int getId();
+    abstract public String getName();
+
     private int mBaseBonus;
     private String mBetcontent;
 
 
-    public Lottery(int id, String name, int baseBonus) {
-        mId = id;
-        mName = name;
+    public Lottery(int baseBonus) {
         mBaseBonus = baseBonus;
         mBetcontent = "";
     }
 
-    public Lottery(int id, String name, int baseBonus, String betcontent) {
-        this(id, name, baseBonus);
+    public Lottery(int baseBonus, String betcontent) {
+        this(baseBonus);
         mBetcontent = betcontent;
     }
 
-    public int getId() {
-        return mId;
-    }
-
-    public void setId(int id) {
-        mId = id;
-    }
-
-    public String getName() {
-        return mName;
-    }
-
-    public void setName(String name) {
-        mName = name;
-    }
-
-    public int getBonus() {
-        return mBaseBonus;
-    }
-
-    public void setBonus(int bonus) {
-        mBaseBonus = bonus;
+    public void setBaseBonus(int baseBonus) {
+        mBaseBonus = baseBonus;
     }
 
     public String getBetcontent() {
@@ -52,13 +31,20 @@ public class Lottery {
         mBetcontent = betcontent;
     }
 
+    public int getBonus() {
+        return mBaseBonus;
+    }
+
     @Override
     public String toString() {
-        return "Lottery{" +
-                "id=" + mId +
-                ", name='" + mName + '\'' +
-                ", baseBonus=" + mBaseBonus +
-                ", betcontent='" + mBetcontent + '\'' +
-                '}';
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append(getName() + " id = " + getId() + "\n");
+        stringBuilder.append("baseBonus = " + mBaseBonus + "\n");
+        stringBuilder.append("bonus = " + getBonus() + "\n");
+        stringBuilder.append("betcontent = " + mBetcontent + "\n");
+
+
+        return stringBuilder.toString();
     }
 }
