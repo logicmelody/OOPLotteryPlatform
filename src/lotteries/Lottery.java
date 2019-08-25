@@ -6,7 +6,7 @@ abstract public class Lottery {
     abstract public String getName();
 
     private int mBaseBonus;
-    private String mBetcontent;
+    protected String mBetcontent;
 
 
     public Lottery(int baseBonus) {
@@ -35,15 +35,12 @@ abstract public class Lottery {
         return mBaseBonus;
     }
 
-    @Override
-    public String toString() {
+    public String getDisplayText() {
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(getName() + " id = " + getId() + "\n");
-        stringBuilder.append("baseBonus = " + mBaseBonus + "\n");
         stringBuilder.append("bonus = " + getBonus() + "\n");
         stringBuilder.append("betcontent = " + mBetcontent + "\n");
-
 
         return stringBuilder.toString();
     }
